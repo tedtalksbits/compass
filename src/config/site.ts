@@ -1,4 +1,4 @@
-import { HomeIcon, LogInIcon, UserIcon, UserPlus } from 'lucide-react';
+import { HomeIcon, UserIcon, UserPlus } from 'lucide-react';
 
 export type SiteConfig = typeof siteConfig;
 

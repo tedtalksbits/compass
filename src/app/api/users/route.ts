@@ -1,7 +1,6 @@
 import { isAuthenticated } from '@/auth-service';
 import Users, { IUserDocument } from '@/mongodb/models/User';
-import { cookies } from 'next/headers';
-export async function GET(request: Request) {
+export async function GET(_req: Request) {
   const auth = await isAuthenticated();
   console.log('Auth:', auth);
   if (!auth) {
