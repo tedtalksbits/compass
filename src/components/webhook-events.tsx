@@ -18,13 +18,20 @@ const WebhookEvents = () => {
       <Button
         variant={'secondary'}
         onClick={() => {
-          fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/webhooks`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify([{ message: 'Test webhook event' }]),
-          });
+          fetch(
+            `${
+              process.env.NODE_ENV === 'production'
+                ? process.env.NEXT_PUBLIC_VERCEL_URL
+                : process.env.NEXT_PUBLIC_BASE_URL
+            }/api/webhooks`,
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify([{ message: 'Test webhook event' }]),
+            }
+          );
         }}
       >
         Send Test Webhook
@@ -40,7 +47,9 @@ const WebhookEvents = () => {
       ) : (
         <p>No webhook events received yet.</p>
       )}
-      {process.env.NEXT_PUBLIC_BASE_URL}
+      {process.env.NODE_ENV === 'production'
+        ? process.env.NEXT_PUBLIC_VERCEL_URL
+        : process.env.NEXT_PUBLIC_BASE_URL}
     </div>
   );
 };
