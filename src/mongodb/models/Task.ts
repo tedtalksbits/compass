@@ -1,6 +1,6 @@
 import mongoose, { ObjectId } from 'mongoose';
 import { ITenant } from './Tenant';
-import { IUser } from './User';
+import { IUserDocument } from './User';
 
 /*
   ========================================
@@ -12,7 +12,7 @@ import { IUser } from './User';
 export type ITask = {
   _id: string;
   tenant: ITenant;
-  assignedTo: IUser;
+  assignedTo: IUserDocument;
   description: string;
   dueDate: Date;
   relatedTo: {

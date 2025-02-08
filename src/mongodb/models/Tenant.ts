@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose, { Document, Schema, Types } from 'mongoose';
 export type ITenant = {
   _id: string;
   name: string;
@@ -15,7 +15,15 @@ export type ITenant = {
   updatedAt: Date;
 };
 
-const TenantSchema = new mongoose.Schema<ITenant>(
+export interface ITenantDocument extends Document, Omit<ITenant, '_id'> {
+  _id: Types.ObjectId;
+}
+
+interface ITenantModel extends mongoose.Model<ITenantDocument> {
+  build(attrs: ITenant): ITenantDocument;
+}
+
+const TenantSchema = new Schema<ITenantDocument>(
   {
     name: {
       type: String,
@@ -47,15 +55,20 @@ const TenantSchema = new mongoose.Schema<ITenant>(
         type: String,
         required: false,
       },
-      theme: {
-        type: String,
-        enum: ['light', 'dark'],
-        default: 'light',
-      },
     },
   },
   { timestamps: true }
 );
 
-export default mongoose.models.Tenant ||
-  mongoose.model<ITenant>('Tenant', TenantSchema);
+TenantSchema.virtual('id').get(function (this: ITenantDocument) {
+  return this._id.toHexString();
+});
+TenantSchema.set('toJSON', {
+  virtuals: true,
+});
+TenantSchema.set('toObject', {
+  virtuals: true,
+});
+
+export default (mongoose.models.Tenant as ITenantModel) ||
+  mongoose.model<ITenantDocument, ITenantModel>('Tenant', TenantSchema);

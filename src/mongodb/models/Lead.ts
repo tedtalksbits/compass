@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import { ITenant } from './Tenant';
 import { ICustomer } from './Customer';
-import { IUser } from './User';
+import { IUserDocument } from './User';
 
 /*
   ========================================
@@ -17,7 +17,7 @@ export type ILead = {
   status: string;
   score: number;
   source: string;
-  assignedTo: IUser;
+  assignedTo: IUserDocument;
   createdAt: Date;
   updatedAt: Date;
 };

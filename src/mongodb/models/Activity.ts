@@ -1,6 +1,6 @@
 import mongoose, { ObjectId } from 'mongoose';
 import { ITenant } from './Tenant';
-import { IUser } from './User';
+import { IUserDocument } from './User';
 
 /*
   ========================================
@@ -12,7 +12,7 @@ import { IUser } from './User';
 export type IActivity = {
   _id: string;
   tenant: ITenant;
-  user: IUser;
+  user: IUserDocument;
   action: string;
   targetType: 'customer' | 'deal' | 'lead' | 'task' | 'note' | 'tenant';
   targetId: ObjectId;

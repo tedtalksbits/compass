@@ -1,13 +1,13 @@
 import mongoose from 'mongoose';
 import { ITenant } from './Tenant';
 import { ICustomer } from './Customer';
-import { IUser } from './User';
+import { IUserDocument } from './User';
 
 export type ICustomerNote = {
   _id: string;
   tenant: ITenant;
   customer: ICustomer;
-  user: IUser;
+  user: IUserDocument;
   content: string;
   createdAt: Date;
   updatedAt: Date;

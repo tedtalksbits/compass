@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import { ITenant } from './Tenant';
 import { ICustomer } from './Customer';
-import { IUser } from './User';
+import { IUserDocument } from './User';
 /*
   ========================================
   Deal Interface
@@ -17,7 +17,7 @@ export type IDeal = {
   pipeline: string;
   closeDate: Date;
   probability: number;
-  assignedTo: IUser;
+  assignedTo: IUserDocument;
   createdAt: Date;
   updatedAt: Date;
 };
