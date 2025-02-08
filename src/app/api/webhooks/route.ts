@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 const globalClients = globalThis as unknown as {
   sseClients: WritableStreamDefaultWriter<any>[];
 };
@@ -55,6 +56,7 @@ export async function GET(req: Request) {
       'Content-Type': 'text/event-stream',
       'Cache-Control': 'no-cache',
       Connection: 'keep-alive',
+      'Transfer-Encoding': 'chunked',
     },
   });
 }
