@@ -39,10 +39,7 @@ export default function LoginPage() {
     <LandingPageLayout>
       <main className='flex min-h-screen flex-col items-center justify-center p-4 sm:p-24 relative'>
         <div className='relative'>
-          <h3 className='mb-8 font-bold text-7xl'>Login</h3>
-          <h3 className='hidden dark:block mb-8 font-bold text-7xl blur-md absolute top-0 right-0'>
-            Login
-          </h3>
+          <h3 className='mb-8 font-bold text-4xl'>Login</h3>
         </div>
         <form
           onSubmit={handleLogin}
