@@ -1,6 +1,5 @@
 import { getCurrentUser, logoutUser } from '@/auth-service';
 import { Button } from '@/components/ui/button';
-import WebhookEvents from '@/components/webhook-events';
 import { redirect } from 'next/navigation';
 
 export default async function DashboardPage() {
@@ -30,8 +29,6 @@ export default async function DashboardPage() {
             </Button>
           </form>
         </div>
-
-        <WebhookEvents />
       </div>
     </div>
   );
