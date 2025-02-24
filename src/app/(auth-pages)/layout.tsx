@@ -1,9 +1,10 @@
+'use client';
 import { siteConfig } from '@/config/site';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
-import { ThemeToggle } from '../theme-toggle';
+import { ThemeToggle } from '../../components/theme-toggle';
 
 export default function LandingPageLayout({
   children,
@@ -20,7 +21,7 @@ export default function LandingPageLayout({
   return (
     <div className='relative'>
       <nav className='flex justify-between items-center fixed z-10 left-0 right-0 top-4'>
-        <div className='bg-card py-4 px-8 w-full lg:w-[50%] max-w-[500px] mx-auto rounded-3xl border shadow-md items-center justify-between flex motion-translate-x-in-[0%] motion-translate-y-in-[-93%]'>
+        <div className='bg-card py-4 px-8 w-full lg:w-[50%] max-w-[500px] mx-auto rounded-lg border shadow-md items-center justify-between flex motion-translate-x-in-[0%] motion-translate-y-in-[-93%]'>
           <Link href='/' className='text-2xl'>
             <Image
               src='/images/compass.png'
